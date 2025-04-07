@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Disease Prediction</h2>
+    <form action="/predict" method="post">
+        <input type="text" name="Glucose" placeholder="Glucose Level" required>
+        <input type="text" name="Cholesterol" placeholder="Cholesterol Level" required>
+        <input type="text" name="Hemoglobin" placeholder="Hemoglobin Level" required>
+        <input type="text" name="Platelets" placeholder="Platelets Count" required>
+        <input type="text" name="White Blood Cells" placeholder="White Blood Cells" required>
+        <input type="text" name="Red Blood Cells" placeholder="Red Blood Cells" required>
+        <input type="text" name="Hematocrit" placeholder="Hematocrit" required>
+        <input type="text" name="Mean Corpuscular Volume" placeholder="Mean Corpuscular Volume" required>
+        <input type="text" name="Mean Corpuscular Hemoglobin" placeholder="Mean Corpuscular Hemoglobin" required>
+        <input type="text" name="Mean Corpuscular Hemoglobin Concentration" placeholder="Mean Corpuscular Hemoglobin Concentration" required>
+        <input type="text" name="Insulin" placeholder="Insulin" required>
+        <input type="text" name="BMI" placeholder="BMI" required>
+        <input type="text" name="Systolic Blood Pressure" placeholder="Systolic Blood Pressure" required>
+        <input type="text" name="Diastolic Blood Pressure" placeholder="Diastolic Blood Pressure" required>
+        <input type="text" name="Triglycerides" placeholder="Triglycerides" required>
+        <input type="text" name="HbA1c" placeholder="HbA1c" required>
+        <input type="text" name="LDL Cholesterol" placeholder="LDL Cholesterol" required>
+        <input type="text" name="HDL Cholesterol" placeholder="HDL Cholesterol" required>
+        <input type="text" name="ALT" placeholder="ALT" required>
+        <input type="text" name="AST" placeholder="AST" required>
+        <input type="text" name="Heart Rate" placeholder="Heart Rate" required>
+        <input type="text" name="Creatinine" placeholder="Creatinine" required>
+        <input type="text" name="Troponin" placeholder="Troponin" required>
+        <input type="text" name="C-reactive Protein" placeholder="C-reactive Protein" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if lr_result is not none and dt_result is not none %}
+        <p><strong>Logistic Regression Prediction:</strong> {{ lr_result }}</p>
+        <p><strong>Decision Tree Prediction:</strong> {{ dt_result }}</p>
+    {% endif %}
+</body>
+</html>
